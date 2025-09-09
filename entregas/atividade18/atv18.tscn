@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://10w2nj45g4m6"]
+
+[ext_resource type="Texture2D" uid="uid://4o731pp3ii5a" path="res://circle-solid-full.svg" id="1_60aql"]
+[ext_resource type="Script" uid="uid://dlnu0d8dlqpdr" path="res://atividade18/atv_18.gd" id="1_h8sjd"]
+[ext_resource type="Texture2D" uid="uid://cxy84mwo82681" path="res://circle-regular-full.svg" id="2_h8sjd"]
+
+[node name="Atv18" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8sjd")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 4
+texture_under = ExtResource("1_60aql")
+texture_progress = ExtResource("2_h8sjd")
+
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 174.0
+offset_right = 373.0
+offset_bottom = 447.0
+theme_override_font_sizes/font_size = 200
+text = "1"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 56.0
+offset_right = 694.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 70
+text = "+10"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
